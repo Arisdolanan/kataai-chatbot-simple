@@ -1,0 +1,39 @@
+active: true
+intents:
+    greeting:
+        initial: true
+        condition: content == 'hiii'
+    botjogja:
+        initial: true
+        condition: content == 'jogja'
+    fallback:
+        fallback: true
+states:
+    init:
+        initial: true
+        transitions:
+            greet:
+                condition: intent == "greeting"
+            greetbot:
+                condition: intent == "botjogja"
+            other:
+                fallback: true
+    greet:
+        end: true
+        action:
+            name: text
+            options:
+                text: hi aris kurniawan!!
+    greetbot:
+        end: true
+        action:
+            name: text
+            options:
+                text: hi bot jogja!!
+    other:
+        end: true
+        action:
+            name: text
+            options:
+                text: sorry!
+# actions:
